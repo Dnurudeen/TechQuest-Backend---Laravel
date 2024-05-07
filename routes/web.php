@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard/dashboard', function () {
-    return view('/dashboard/dashboard');
-});
-Route::get('/dashboard/staffs', function () {
-    return view('/dashboard/staffs');
+
+
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('/dashboard/dashboard', function () {
+        return view('/dashboard/dashboard');
+    });
+    Route::get('/dashboard/staffs', function () {
+        return view('/dashboard/staffs');
+    });
+    // Route::get('/dashboard/dashboard', [DashboardController::class, 'Dashboard'])->name('Dashboard');
+    // Route::get('/dashboard/staffs', 'DashboardController')->name('staffs');
 });
 
 Auth::routes();
