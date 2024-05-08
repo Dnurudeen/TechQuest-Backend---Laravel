@@ -38,6 +38,7 @@
                                 @enderror
                             </div>
                         </div>
+                        <input type="hidden" name="role" id="role" value="user">
                         <div class="form-group">
                             <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email"
                                 placeholder="Email Address" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -80,7 +81,7 @@
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                     </div>
                     <div class="text-center">
-                        <a class="small" href="login.html">Already have an account? Login!</a>
+                        <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
                     </div>
                 </div>
             </div>

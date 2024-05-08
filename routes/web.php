@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +19,16 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->group(function (){
-    Route::get('/dashboard/dashboard', function () {
-        return view('/dashboard/dashboard');
-    });
-    Route::get('/dashboard/staffs', function () {
-        return view('/dashboard/staffs');
-    });
+    Route::get('/admin/dashboard', 'AdminController@index')->middleware('role:admin');
+    Route::get('/dashboard/dashboard', 'DashboardController@index')->middleware('role:user');
+    Route::get('/admin/staffs', [AdminController::class, 'users']);
+
+    // Route::get('/dashboard/dashboard', function () {
+    //     return view('/dashboard/dashboard');
+    // });
+    // Route::get('/dashboard/staffs', function () {
+    //     return view('/dashboard/staffs');
+    // });
     // Route::get('/dashboard/dashboard', [DashboardController::class, 'Dashboard'])->name('Dashboard');
     // Route::get('/dashboard/staffs', 'DashboardController')->name('staffs');
 });
