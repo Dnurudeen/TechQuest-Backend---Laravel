@@ -12,7 +12,8 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-danger"><b>{{ __('TechQuest Stem Academy') }}</b></h6>
+        <h6 class="m-0 font-weight-bold text-danger d-inline float-left"><b>{{ __('TechQuest Stem Academy') }}</b></h6>
+        <a href="{{ url('/admin/add-staff') }}"><button class="btn btn-danger float-right"><i class="fa fa-plus mr-2"></i>{{ __('Add Staff') }}</button></a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -48,7 +49,7 @@
                         <td>{{ $user->age }}</td>
                         <td>{{ $user->startdate }}</td>
                         <td>{{ $user->salary }}</td>
-                        <td><a href="#" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
+                        <td><a href="{{ url('/admin/view-profile/'.$user->id) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
                     </tr>
                     @endforeach
                 </tbody>

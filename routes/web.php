@@ -22,6 +22,10 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/admin/dashboard', 'AdminController@index')->middleware('role:admin');
     Route::get('/dashboard/dashboard', 'DashboardController@index')->middleware('role:user');
     Route::get('/admin/staffs', [AdminController::class, 'users']);
+    Route::get('/admin/view-profile/{id}', [AdminController::class, 'viewstaff']);
+
+    Route::get('/admin/add-staff', [AdminController::class, 'addstaff'])->name('addstaff.index');
+    Route::post('/admin/add-staff', [AdminController::class, 'store'])->name('addstaff.store');
 
     // Route::get('/dashboard/dashboard', function () {
     //     return view('/dashboard/dashboard');
