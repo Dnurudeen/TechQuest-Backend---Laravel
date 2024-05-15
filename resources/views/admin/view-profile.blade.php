@@ -7,7 +7,12 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">{{ __('Staffs information') }}</h1>
-<p class="mb-4"><b><i>{{ __('Profile') }}</i></b></p>
+
+<div>
+    <p class="mb-4 float-left"><b><i>{{ __('Profile') }}</i></b></p>
+    <a href="{{ url('/admin/edit') }}" class="float-right"><b>Edit</b></a>
+</div><br><br>
+
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -51,6 +56,7 @@
                         <td>{{ $users->created_at }}</td>
                     </tr>
             </table>
+            <a href="{{ url('/admin/edit/'.$users->id) }}" class="btn btn-danger my-3 float-right"><b>Edit</b></a>
         </div>
     </div>
 </div>

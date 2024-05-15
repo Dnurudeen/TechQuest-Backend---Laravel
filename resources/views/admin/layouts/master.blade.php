@@ -31,7 +31,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/dashboard/dashboard') }}">
+                <a class="nav-link" href="{{ url('/admin/dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -55,7 +55,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Staff Informations:</h6>
                         <a class="collapse-item" href="{{ url('/admin/staffs') }}">Staffs</a>
-                        <a class="collapse-item" href="#">Edit</a>
+                        <a class="collapse-item" href="{{ url('/admin/edit') }}">Edit</a>
                     </div>
                 </div>
             </li>

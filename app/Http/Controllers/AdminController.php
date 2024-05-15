@@ -57,4 +57,9 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Staff added successfully!');
       }
+
+      public function editstaff($id){
+        $users = User::find($id);
+        return view('/admin/edit', compact('users'));
+      }
 }

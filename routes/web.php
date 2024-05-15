@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/admin/add-staff', [AdminController::class, 'addstaff'])->name('addstaff.index');
     Route::post('/admin/add-staff', [AdminController::class, 'store'])->name('addstaff.store');
 
+    Route::get('/admin/edit/{id}', [AdminController::class, 'editstaff']);
+
     // Route::get('/dashboard/dashboard', function () {
     //     return view('/dashboard/dashboard');
     // });
