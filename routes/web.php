@@ -26,17 +26,10 @@ Route::middleware(['auth'])->group(function (){
 
     Route::get('/admin/add-staff', [AdminController::class, 'addstaff'])->name('addstaff.index');
     Route::post('/admin/add-staff', [AdminController::class, 'store'])->name('addstaff.store');
+    // Route::get('/admin/edit', 'AdminController@edit')->name('admin.editstaff');
 
     Route::get('/admin/edit/{id}', [AdminController::class, 'editstaff']);
-
-    // Route::get('/dashboard/dashboard', function () {
-    //     return view('/dashboard/dashboard');
-    // });
-    // Route::get('/dashboard/staffs', function () {
-    //     return view('/dashboard/staffs');
-    // });
-    // Route::get('/dashboard/dashboard', [DashboardController::class, 'Dashboard'])->name('Dashboard');
-    // Route::get('/dashboard/staffs', 'DashboardController')->name('staffs');
+    Route::put('/admin/edit/{id}', 'AdminController@update')->name('admin.update');
 });
 
 Auth::routes();

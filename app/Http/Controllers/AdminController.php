@@ -62,4 +62,21 @@ class AdminController extends Controller
         $users = User::find($id);
         return view('/admin/edit', compact('users'));
       }
+
+      public function update($id, Request $request){
+        $update = User::findOrFail($id);
+
+        $update->name = $request->input('name');
+        $update->role = $request->input('role');
+        $update->position = $request->input('position');
+        $update->office = $request->input('office');
+        $update->age = $request->input('age');
+        $update->startdate = $request->input('startdate');
+        $update->salary = $request->input('salary');
+
+        $update->update($request->all());
+
+        return redirect()->back()->with('success', 'Staff information updated successfully!');
+        // $update->email = $request->input('email');
+      }
 }

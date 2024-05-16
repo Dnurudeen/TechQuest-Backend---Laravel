@@ -10,7 +10,7 @@
 
 <div>
     <p class="mb-4 float-left"><b><i>{{ __('Profile') }}</i></b></p>
-    <a href="{{ url('/admin/edit') }}" class="float-right"><b>Edit</b></a>
+    <a href="{{ url('/admin/edit/'.$users->id) }}" class="float-right"><b>Edit</b></a>
 </div><br><br>
 
 
